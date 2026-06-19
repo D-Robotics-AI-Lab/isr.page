@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="Improving Robotic Imitation Learning via Trajectory Standardization">
+  <meta name="description"
+    content="Information-Standardized Trajectory Resampling (ISR) is an offline preprocessing method for improving robotic imitation learning from noisy and temporally irregular demonstrations.">
+  <meta name="keywords"
+    content="ISR, imitation learning, robot learning, trajectory resampling, trajectory standardization, manipulation">
+  <meta name="author"
+    content="Licheng Yang, Lingfeng Qian, Fei Zheng, Yonghao He, Wei Sui, Shuangshuang Li, Hu Su">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="D-Robotics AI Lab">
+  <meta property="og:url" content="https://d-robotics-ai-lab.github.io/isr.page/">
+  <meta property="og:title" content="Improving Robotic Imitation Learning via Trajectory Standardization">
+  <meta property="og:description"
+    content="ISR resamples robotic demonstration trajectories by enforcing approximately equal information distance between adjacent points.">
+  <meta property="og:image" content="https://d-robotics-ai-lab.github.io/isr.page/static/images/video-poster.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Improving Robotic Imitation Learning via Trajectory Standardization">
+  <meta name="twitter:description"
+    content="Information-Standardized Trajectory Resampling (ISR) improves robotic imitation learning from noisy and temporally irregular demonstrations.">
+  <meta name="twitter:image" content="https://d-robotics-ai-lab.github.io/isr.page/static/images/video-poster.jpg">
+
+  <meta name="citation_title" content="Improving Robotic Imitation Learning via Trajectory Standardization">
+  <meta name="citation_author" content="Yang, Licheng">
+  <meta name="citation_author" content="Qian, Lingfeng">
+  <meta name="citation_author" content="Zheng, Fei">
+  <meta name="citation_author" content="He, Yonghao">
+  <meta name="citation_author" content="Sui, Wei">
+  <meta name="citation_author" content="Li, Shuangshuang">
+  <meta name="citation_author" content="Su, Hu">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="IROS 2026">
+  <meta name="citation_pdf_url" content="static/pdfs/ISR.pdf">
+
+  <meta name="theme-color" content="#2563eb">
+
+  <title>ISR: Improving Robotic Imitation Learning via Trajectory Standardization</title>
+
+  <link rel="canonical" href="https://d-robotics-ai-lab.github.io/isr.page/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/isr.css?v=20260620-19">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/isr-video.js?v=20260620-19"></script>
+</head>
+
+<body>
+  <section class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title isr-title">
+              <span>Improving Robotic Imitation Learning</span>
+              <span>via Trajectory Standardization</span>
+            </h1>
+
+            <div class="is-size-5 publication-authors isr-authors">
+              <span class="author-block">
+                <a onclick="return false">Licheng Yang</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a onclick="return false">Lingfeng Qian</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a onclick="return false">Fei Zheng</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a onclick="return false">Yonghao He</a><sup>2†</sup>,
+              </span>
+              <span class="author-block">
+                <a onclick="return false">Wei Sui</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a onclick="return false">Shuangshuang Li</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a onclick="return false">Hu Su</a><sup>1*</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors isr-affiliations">
+              <span class="author-block">
+                <sup>1</sup>State Key Laboratory of Multimodal Artificial Intelligence Systems (MAIS), Institute of
+                Automation, Chinese Academy of Sciences <br>
+                <sup>2</sup>D-Robotics
+              </span>
+            </div>
+
+            <div class="isr-notes">
+              <sup>*</sup>Corresponding author&nbsp;&nbsp;
+              <sup>†</sup>Project lead
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="static/pdfs/ISR.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#video" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-video"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column custom-width-95">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Imitation learning for robotic manipulation relies on large sets of human demonstration trajectories,
+              which are often noisy and temporally irregular due to variable operator speed, intermittent pauses, and
+              inconsistent action density. A common preprocessing strategy is time-uniform downsampling to shorten
+              sequences, but it cannot effectively remove speed-induced non-uniformity or redundant pauses. This
+              mismatch degrades data quality and hinders policy learning. To address this issue, we propose
+              <strong>Information-Standardized Trajectory Resampling (ISR)</strong>, an offline preprocessing method
+              for effective imitation learning. ISR resamples each trajectory by enforcing approximately equal
+              information distance between adjacent points. Specifically, we map trajectories onto an
+              information-modulated Riemannian manifold and perform geodesic-equidistant parameterization. We construct
+              an information-intensity field from velocity and acceleration norms: the velocity term removes
+              small-motion redundancy, while the acceleration term preserves high-curvature and fine-manipulation
+              phases. We evaluate ISR on three real-world manipulation tasks with mainstream imitation learning
+              policies. Compared with the baseline time-uniform 3x downsampling, ISR improves task success rates by
+              about 25%, remains robust across datasets collected from different operators, and reduces both dataset
+              size and training cost.
+            </p>
+          </div>
+          <div class="isr-video-frame isr-video-after-abstract" id="video">
+            <video controls preload="auto" poster="static/images/video-poster.jpg?v=20260620-19" playsinline>
+              <source src="static/videos/ISR.mp4?v=20260620-19" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section isr-section" id="method">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column custom-width-95">
+          <h2 class="title is-3 has-text-centered">Method</h2>
+
+          <div class="content has-text-justified isr-copy">
+            <p>
+              <strong>Information-Standardized Trajectory Resampling (ISR)</strong> is an offline preprocessing method
+              that resamples demonstration trajectories so that consecutive points carry approximately equal kinematic
+              and dynamic information. From the end-effector position sequence, ISR computes velocity and acceleration,
+              then constructs an information-intensity field from two complementary terms: a velocity term that measures
+              the instantaneous displacement rate and an acceleration term that measures the rate of velocity change.
+              Using this field as a conformal factor, ISR maps each trajectory onto a Riemannian manifold and formulates
+              resampling as a geodesic-equidistant optimization problem, where consecutive resampled points are
+              constrained to have approximately equal generalized distance. The result is a compact, standardized
+              trajectory that preserves the start and end points and retains the operator's manipulation intent with
+              significantly fewer action points.
+            </p>
+          </div>
+
+          <figure class="isr-figure isr-pipeline-figure">
+            <img src="static/images/isr_pipeline.png" alt="ISR pipeline overview" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light isr-section" id="effectiveness">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column custom-width-95">
+          <h2 class="title is-3 has-text-centered">Effectiveness</h2>
+
+          <div class="content has-text-justified isr-copy">
+            <p>
+              ISR redistributes samples from low-value motion to task-critical phases. Its velocity term compresses
+              pauses, hesitation, and slow low-displacement transit into larger, more uniform steps, reducing
+              operator-speed artifacts and redundant frames; its acceleration term keeps denser coverage around sharp
+              turns, deceleration-to-contact, and fine manipulation, preventing compact but essential actions such as
+              grasping, alignment, and placement from being skipped. This information-balanced resampling improves
+              downstream success while retaining only about 28-40% of the original action points and remaining more
+              robust when demonstrations come from multiple operators.
+            </p>
+          </div>
+
+          <figure class="isr-figure isr-effect-figure">
+            <img src="static/images/isr_effect.png" alt="Visualization of ISR resampling effects" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section isr-section" id="evaluation">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column custom-width-95">
+          <h2 class="title is-3 has-text-centered">Evaluation</h2>
+
+          <div class="content has-text-justified isr-copy">
+            <p>
+              We evaluate ISR on three real-world manipulation tasks: Place&amp;Cover, Place&amp;Stack, and Push-T.
+              The evaluation contains three studies. <strong>Baseline Comparison</strong> compares ISR with
+              time-uniform 3x downsampling under two imitation learning policies, &pi;<sub>0.5</sub> and VO-DP.
+              <strong>Ablation Study</strong> varies the acceleration weight while keeping the velocity term fixed to
+              analyze how dynamic-information preservation affects downstream policy learning.
+              <strong>Cross-Operator Robustness</strong> tests whether ISR can absorb operator-specific differences in
+              speed, pauses, and teleoperation style when demonstrations are collected from multiple people.
+            </p>
+          </div>
+
+          <div class="content has-text-justified isr-copy isr-eval-summary">
+            <p>
+              Across the three studies, ISR consistently improves downstream policy learning by redistributing samples
+              according to task-relevant motion information rather than timestamp spacing. The baseline comparison shows
+              broad gains across tasks and policy backbones; the ablation study shows that the acceleration term is
+              essential for contact-sensitive manipulation; and the cross-operator study shows that information
+              standardization reduces style-induced conflicts when demonstrations are collected from multiple operators.
+            </p>
+          </div>
+
+          <div class="isr-table-scroll" aria-label="Baseline comparison results">
+            <table class="isr-result-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Place&amp;Cover</th>
+                  <th>Place&amp;Stack</th>
+                  <th>Push-T</th>
+                  <th>AVG. (&uarr;)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>3x + &pi;<sub>0.5</sub></td>
+                  <td>45.8 <span>(33.3)</span></td>
+                  <td>48.6 <span>(33.3)</span></td>
+                  <td>48.9 <span>(33.3)</span></td>
+                  <td>47.8</td>
+                </tr>
+                <tr class="isr-highlight-row">
+                  <td>ISR + &pi;<sub>0.5</sub></td>
+                  <td>72.2 <span>(28.9)</span></td>
+                  <td>72.2 <span>(28.2)</span></td>
+                  <td>71.1 <span>(40.2)</span></td>
+                  <td>71.8</td>
+                </tr>
+                <tr>
+                  <td>3x + VO-DP</td>
+                  <td>56.9 <span>(33.3)</span></td>
+                  <td>66.7 <span>(33.3)</span></td>
+                  <td>64.4 <span>(33.3)</span></td>
+                  <td>62.7</td>
+                </tr>
+                <tr class="isr-highlight-row">
+                  <td>ISR + VO-DP</td>
+                  <td>77.8 <span>(28.9)</span></td>
+                  <td>91.6 <span>(28.2)</span></td>
+                  <td>71.1 <span>(40.2)</span></td>
+                  <td>80.2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="isr-table-note">Success rate is shown in percent; resampling ratio is shown in parentheses.</p>
+
+          <div class="isr-eval-grid">
+            <figure class="isr-figure isr-eval-figure">
+              <img src="static/images/isr_ablation_cover.png" alt="Acceleration weight ablation on Place and Cover"
+                loading="lazy">
+              <img src="static/images/isr_ablation_stack.png" alt="Acceleration weight ablation on Place and Stack"
+                loading="lazy">
+            </figure>
+
+            <figure class="isr-figure isr-eval-figure">
+              <img src="static/images/isr_cross_operator_single.png" alt="Single-operator Place and Stack comparison"
+                loading="lazy">
+              <img src="static/images/isr_cross_operator_mixed.png" alt="Mixed-operator Place and Stack comparison"
+                loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer isr-footer">
+    <div class="container is-max-desktop">
+      <div class="content has-text-centered">
+        <p>
+          This page was built using the
+          <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank"
+            rel="noopener">Academic Project Page Template</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
