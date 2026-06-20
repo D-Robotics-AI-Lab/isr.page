@@ -1,19 +1,18 @@
-# ISR Project Page
+<h1 align="center">Improving Robotic Imitation Learning via Trajectory Standardization</h1>
 
-This repository hosts the project page for:
+<p align="center">
+  Licheng Yang<sup>1,2</sup>, Lingfeng Qian<sup>2</sup>, Fei Zheng<sup>2</sup>,
+  Yonghao He<sup>2&dagger;</sup>, Wei Sui<sup>2</sup>,
+  Shuangshuang Li<sup>1</sup>, Hu Su<sup>1*</sup>
+</p>
 
-**Improving Robotic Imitation Learning via Trajectory Standardization**
+<p align="center">
+  <sup>1</sup>State Key Laboratory of Multimodal Artificial Intelligence Systems (MAIS),
+  Institute of Automation, Chinese Academy of Sciences<br>
+  <sup>2</sup>D-Robotics<br>
+  <sup>*</sup>Corresponding author  <sup>&dagger;</sup>Project lead
+</p>
 
-Site: https://d-robotics-ai-lab.github.io/isr.page/
+The project page is:
 
-## Updating the Page
-
-Edit the static files in this repository, then push to `main`:
-
-```bash
-git add .
-git commit -m "Update project page"
-git push
-```
-
-GitHub Pages publishes from the repository root on the `main` branch.
+https://d-robotics-ai-lab.github.io/isr.page/

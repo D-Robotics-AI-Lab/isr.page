@@ -256,52 +256,56 @@
           </div>
 
           <div class="isr-table-scroll" aria-label="Baseline comparison results">
-            <table class="isr-result-table">
-              <thead>
-                <tr>
-                  <th>Method</th>
-                  <th>Place&amp;Cover</th>
-                  <th>Place&amp;Stack</th>
-                  <th>Push-T</th>
-                  <th>AVG. (&uarr;)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>3x + &pi;<sub>0.5</sub></td>
-                  <td>45.8 <span>(33.3)</span></td>
-                  <td>48.6 <span>(33.3)</span></td>
-                  <td>48.9 <span>(33.3)</span></td>
-                  <td>47.8</td>
-                </tr>
-                <tr class="isr-highlight-row">
-                  <td>ISR + &pi;<sub>0.5</sub></td>
-                  <td>72.2 <span>(28.9)</span></td>
-                  <td>72.2 <span>(28.2)</span></td>
-                  <td>71.1 <span>(40.2)</span></td>
-                  <td>71.8</td>
-                </tr>
-                <tr>
-                  <td>3x + VO-DP</td>
-                  <td>56.9 <span>(33.3)</span></td>
-                  <td>66.7 <span>(33.3)</span></td>
-                  <td>64.4 <span>(33.3)</span></td>
-                  <td>62.7</td>
-                </tr>
-                <tr class="isr-highlight-row">
-                  <td>ISR + VO-DP</td>
-                  <td>77.8 <span>(28.9)</span></td>
-                  <td>91.6 <span>(28.2)</span></td>
-                  <td>71.1 <span>(40.2)</span></td>
-                  <td>80.2</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="isr-panel-title">Baseline Comparison</div>
+            <div class="isr-table-overflow">
+              <table class="isr-result-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Place&amp;Cover</th>
+                    <th>Place&amp;Stack</th>
+                    <th>Push-T</th>
+                    <th>AVG. (&uarr;)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>3x + &pi;<sub>0.5</sub></td>
+                    <td>45.8 <span>(33.3)</span></td>
+                    <td>48.6 <span>(33.3)</span></td>
+                    <td>48.9 <span>(33.3)</span></td>
+                    <td>47.8</td>
+                  </tr>
+                  <tr class="isr-highlight-row">
+                    <td>ISR + &pi;<sub>0.5</sub></td>
+                    <td>72.2 <span>(28.9)</span></td>
+                    <td>72.2 <span>(28.2)</span></td>
+                    <td>71.1 <span>(40.2)</span></td>
+                    <td>71.8</td>
+                  </tr>
+                  <tr>
+                    <td>3x + VO-DP</td>
+                    <td>56.9 <span>(33.3)</span></td>
+                    <td>66.7 <span>(33.3)</span></td>
+                    <td>64.4 <span>(33.3)</span></td>
+                    <td>62.7</td>
+                  </tr>
+                  <tr class="isr-highlight-row">
+                    <td>ISR + VO-DP</td>
+                    <td>77.8 <span>(28.9)</span></td>
+                    <td>91.6 <span>(28.2)</span></td>
+                    <td>71.1 <span>(40.2)</span></td>
+                    <td>80.2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <p class="isr-table-note">Success rate is shown in percent; resampling ratio is shown in parentheses.</p>
 
           <div class="isr-eval-grid">
             <figure class="isr-figure isr-eval-figure">
+              <figcaption class="isr-panel-title">Ablation Study (Acceleration Weight in Parentheses)</figcaption>
               <img src="static/images/isr_ablation_cover.png" alt="Acceleration weight ablation on Place and Cover"
                 loading="lazy">
               <img src="static/images/isr_ablation_stack.png" alt="Acceleration weight ablation on Place and Stack"
@@ -309,6 +313,7 @@
             </figure>
 
             <figure class="isr-figure isr-eval-figure">
+              <figcaption class="isr-panel-title">Cross-Operator Robustness</figcaption>
               <img src="static/images/isr_cross_operator_single.png" alt="Single-operator Place and Stack comparison"
                 loading="lazy">
               <img src="static/images/isr_cross_operator_mixed.png" alt="Mixed-operator Place and Stack comparison"
