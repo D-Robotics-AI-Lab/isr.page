@@ -219,6 +219,16 @@
   font-size: 0.9rem;
 }
 
+.isr-bibtex-block {
+  max-width: var(--isr-content-width);
+  margin: 0 auto;
+}
+
+.isr-bibtex-block pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .isr-footer {
   border-top: 1px solid var(--border-color);
   background: var(--background-primary);
