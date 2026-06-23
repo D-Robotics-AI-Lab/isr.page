@@ -1,0 +1,11 @@
+This video presents ISR (Information-Standardized Trajectory
+Resampling), an offline preprocessing method that resamples robotic
+teleoperation demonstrations to achieve uniform kinematic-dynamic
+information density. The first part of the video introduces the ISR
+method architecture and experimental results, covering a baseline
+comparison, an ablation study on the acceleration weight, and a
+cross-operator robustness analysis across three real-world
+manipulation tasks. The second part shows real-world inference
+rollouts of the VLA policy pi_0.5 trained on
+ISR-resampled datasets, demonstrating task execution on Place&Cover,
+Place&Stack, and Push-T using an AgileX Piper robot arm.
