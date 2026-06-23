@@ -58,7 +58,7 @@
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  <link rel="stylesheet" href="static/css/isr.css?v=20260623-3">
+  <link rel="stylesheet" href="static/css/isr.css?v=20260623-4">
 
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/isr-video.js?v=20260620-19"></script>
@@ -204,20 +204,38 @@
           <div class="content has-text-justified isr-copy">
             <p>
               <strong>Information-Standardized Trajectory Resampling (ISR)</strong> is an offline preprocessing method
-              that resamples demonstration trajectories so that consecutive points carry approximately equal kinematic
-              and dynamic information. From the end-effector position sequence, ISR computes velocity and acceleration,
-              then constructs an information-intensity field from two complementary terms: a velocity term that measures
-              the instantaneous displacement rate and an acceleration term that measures the rate of velocity change.
-              Using this field as a conformal factor, ISR maps each trajectory onto a Riemannian manifold and formulates
-              resampling as a geodesic-equidistant optimization problem, where consecutive resampled points are
-              constrained to have approximately equal generalized distance. The result is a compact, standardized
-              trajectory that preserves the start and end points and retains the operator's manipulation intent with
-              significantly fewer action points.
+              that resamples raw teleoperated demonstration trajectories so that consecutive retained points carry
+              approximately equal kinematic and dynamic information. ISR comprises three steps, as illustrated in the
+              figure below.
+            </p>
+            <p>
+              <strong>Step 1 — Information Intensity Field.</strong> From the end-effector position sequence, ISR
+              computes per-frame velocity and acceleration via finite differences, then combines them into a scalar
+              information-intensity field weighted by two complementary terms. The velocity term captures the
+              instantaneous displacement rate and identifies low-value segments such as unintentional pauses and slow
+              transits. The acceleration term encodes curvature-induced centripetal acceleration during arc-like
+              movements and tangential deceleration before contact-rich manipulation phases, serving as a kinematic
+              proxy for force-sensitive operator intent.
+            </p>
+            <p>
+              <strong>Step 2 — Riemannian Manifold Mapping.</strong> Using the information-intensity field as a
+              conformal factor, ISR warps each trajectory onto a one-dimensional Riemannian manifold. Under this
+              metric, high-activity regions are stretched while low-activity regions are compressed, so that equal
+              geodesic arc lengths correspond to equal amounts of kinematic–dynamic information. The geodesic distance
+              between two trajectory points is approximated in discrete form using the secant distance for the velocity
+              term and the accumulated acceleration sum for the acceleration term.
+            </p>
+            <p>
+              <strong>Step 3 — Parametric Standardization.</strong> ISR selects the resampled index set by minimizing
+              the total squared deviation of each segment's geodesic distance from a prescribed target distance. This
+              geodesic-equidistant optimization is solved exactly via dynamic programming with prefix-sum acceleration,
+              producing a compact, standardized trajectory that serves as a drop-in replacement for any downstream
+              imitation learning pipeline without architectural changes.
             </p>
           </div>
 
           <figure class="isr-figure isr-pipeline-figure">
-            <img src="static/images/isr_pipeline.png" alt="ISR pipeline overview" loading="lazy">
+            <img src="static/images/isr_pipeline.png?v=20260623-4" alt="ISR pipeline overview" loading="lazy">
           </figure>
         </div>
       </div>
